@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'anubis.ico'%}">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'dashboard.css' %}">
+    <script src="{% static 'dashboard.js' %}">
+        </script>
+</head>
+<body>
+    <input type="checkbox" id="checkbox">
+    <!--The Header for Anubis-->
+    <header class="header">
+        <label class="label" for="checkbox">
+            <i id="hamburger" class="fa fa-bars" >
+                  
+            </i>  
+        </label>
+        <h2 class="u-name">Anubis-<b>FRS</b>
+              
+        </h2>
+        <a href="{% url 'logout' %}">
+        <i class="fa fa-sign-out"></i>
+        </a>
+    </header>
+    <!--Adding Left nav with classes for css stlying-->
+    <div class="body">
+        <nav class="side-bar">
+        <!--userprofile css styling-->
+            <div class="userprofile" id="dash">
+                <img src="{% static 'Images/adminpic.jpg' %}">
+                <h4>{{ user.username }}</h4>
+            </div>
+            <!--Dashboard Items-->
+            <ul>
+                <li>
+                <a href="{% url 'dashboard' %}">
+                    <i class="fa fa-desktop">
+                        <span>Dashboard</span>
+                    </i>
+                </a>
+                </li>
+                    <li>
+                        <a href="{% url 'Upload' %}">
+                            <i class="fa fa-eye">
+                                <span>Train Faces</span>
+                            </i>
+                        </a>
+                        </li>
+                    <li> 
+                        <a href="{% url 'Unknownfaces'%}">
+                            <i class="fa fa-user-secret">
+                                <span class="logout">Unknown Faces</span>
+                            </i>
+                        </a>
+                    </li>
+                 <li>
+                        <a href="{% url 'Notify'%}">
+                            <i class="fa fa-bell">
+                                <span>Notifications</span>
+                            </i>
+                        </a>
+                </li>
+                <li> 
+                        <a href="{% url 'logout' %}">
+                            <i class="fa fa-power-off">
+                                <span class="logout">Logout</span>
+                            </i>
+                        </a>
+                        </li>
+            </ul>
+           
+        </ul>
+        </nav>
+        <div class="cameradashboard">
+            <button class="pulse-button">+</button>  
+            <!--div container for camera feeds-->
+            <div id="div-container" style="margin-top: 0px;">
+                
+                <div class="div-shadow">
+                    <!--Video tag for camera streams-->
+                    <video id="video1" autoplay muted playsinline="true" style="width: 900px;"></video>
+                    <button class="pulse-button"onclick="start(1)" id="button">+</button>
+                </div>
+                <div class="div-shadow">
+                    <!--Video tag for camera streams-->
+                    <video id="video2" autoplay muted playsinline="true" style="width: 900px;"></video>
+                    <button class="pulse-button"onclick="start(2)" id="button2">+</button>
+            </div> 
+            <div class="div-shadow">
+                 <!--Video tag for camera streams-->
+                 <video id="video3" autoplay muted playsinline="true" style="width: 900px;"></video>
+                <button class="pulse-button" onclick="start(3)" id="button3">+</button> 
+        </div> 
+        <div class="div-shadow">
+             <!--Video tag for camera streams-->
+             <video id="video4" autoplay muted playsinline="true" style="width: 900px;"></video>
+            <button class="pulse-button" onclick="start(4)" id="button4">+</button>
+    </div> 
+    </div> 
+            </div>
+        <!--Form for adding Camera1-->
+        <div class="bg-modal">
+            <div class="modal-content">
+                <div class="close">+</div>
+                <div class="login-block">
+                    <h1>Stream 1</h1>
+                    <form method="POST">
+                        {% csrf_token %}
+                    <input type="text" value="" placeholder="Desired Camera Name" id="nm" name="camera1" />
+                    <input type="text" value="" placeholder="rtsp://admin:123456@IP/live/ch0" id="username" name="camera1url" />
+                        <button class="btn-add">Submit</button>
+                    </form>
+        </div>
+        </div>
+        </div>
+        <!--Form for Camera 2-->
+        <div class="bg-modal" id="modal2">
+            <div class="modal-content">
+                <div class="close">+</div>
+                <div class="login-block">
+                    <h1>Stream 2</h1>
+                    <form method="POST">
+                        {% csrf_token %}
+                    <input type="text" value="" placeholder="Desired Camera Name" id="nm" name="camera2" />
+                    <input type="text" value="" placeholder="rtsp://admin:123456@IP/live/ch0" id="username" name="camera2url" />
+                        <button class="btn-add">Submit</button>
+                    </form>
+        </div>
+        </div>
+        </div>
+        <!--Form for Camera 3-->
+        <div class="bg-modal" id="modal3">
+            <div class="modal-content">
+                <div class="close">+</div>
+                <div class="login-block">
+                    <h1>Stream 3</h1>
+                    <form method="POST">
+                        {% csrf_token %}
+                    <input type="text" value="" placeholder="Desired Camera Name" id="nm" name="camera3" />
+                    <input type="text" value="" placeholder="rtsp://admin:123456@IP/live/ch0" id="username" name="camera3url" />
+                        <button class="btn-add">Submit</button>
+                    </form>
+        </div>
+        </div>
+        </div>
+        <!--Form for Camera 4-->
+        <div class="bg-modal" id="modal4">
+            <div class="modal-content">
+                <div class="close">+</div>
+                <div class="login-block">
+                    <h1>Stream 4</h1>
+                    <form method="POST">
+                        {% csrf_token %}
+                    <input type="text" value="" placeholder="Desired Camera Name" id="nm" name="camera4" />
+                    <input type="text" value="" placeholder="rtsp://admin:123456@IP/live/ch0" id="username" name="camera4url" />
+                        <button class="btn-add">Submit</button>
+                    </form>
+        </div>
+        </div>
+        </div>
+        </section>
+    </div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unknown Faces</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'anubis.ico' %}">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'unknown.css'%}">
+    <script src=""></script>
+</head>
+<body>
+    <input type="checkbox" id="checkbox">
+    <!--The Header for Anubis-->
+    <header class="header">
+        <label class="label" for="checkbox">
+            <i id="hamburger" class="fa fa-bars" >
+            </i>  
+        </label>
+        <h2 class="u-name"><b>Unknown Faces</b>
+        </h2>
+        <a href="{% url 'dashboard' %}">
+        <i class="fa fa-chevron-circle-left"></i>
+        </a>
+    </header>
+    <!--Adding Left nav with classes for css stlying-->
+    <div class="body">
+        <nav class="side-bar">
+        <!--userprofile css styling-->
+            <div class="userprofile">
+                <img src="{% static 'Images/adminpic.jpg' %}">
+                <h4>{{ user.username }}</h4>
+            </div>
+            <!--Dashboard Items-->
+            <ul>
+                <li>
+                <a href="{% url 'dashboard' %}">
+                    <i class="fa fa-home">
+                        <span>Home</span>
+                    </i>
+                </a>
+                </li>
+                <li>
+                    <a href="{% url 'Upload' %}">
+                        <i class="fa fa-eye">
+                            <span>Train Faces</span>
+                        </i>
+                    </a>
+                    </li>
+             <li>
+                    <a href="{% url 'Notify'%}">
+                        <i class="fa fa-bell">
+                            <span>Notifications</span>
+                        </i>
+                    </a>
+                </li>
+                <li> 
+                        <a href="{% url 'logout' %}">
+                            <i class="fa fa-power-off">
+                                <span>Logout</span>
+                            </i>
+                        </a>
+                        </li>
+            </ul>
+            </ul>
+        </nav>
+        <section class="form-dashboard">
+            <button class="pulse-button">view faces</button>  
+        </section>
+    </div>
+</body>
+</html>

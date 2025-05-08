@@ -1,0 +1,422 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box; 
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+ }
+ /* Styling for the header*/
+ .header {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     padding: 7px 30px;
+     background-color: #2c2c2c;
+     color :black;
+     border-bottom: 3px solid goldenrod;
+     
+ }
+ /*styling for Anubis lettering*/
+ .u-name{
+     font-size:  20px;
+     padding-left: 17px;
+ }
+ /* styling for all the i tags in the header*/
+ .header i {
+     font-size: 30px;
+     cursor: pointer;
+     color: black;
+     
+ }
+ /*hovering effect for the i tag to gold */
+ .header i:hover {
+     color: goldenrod;
+ }
+ /*styling for the user profile icon on the left */
+ .userprofile {
+     text-align: center;
+     padding-left: 10px;
+     padding-top: 25px;
+     margin-left: -50px;
+ }
+ 
+ .userprofile img{
+     width: 100px;
+     border-radius: 50%;
+ }
+ 
+ .userprofile h4{
+     color: goldenrod;
+     padding: 5px 0;
+ }
+ 
+ /*styling for the side bar */
+ .side-bar{
+     width: 250px;
+     background: #262931;
+     min-height: 100vh; 
+     border-right: 3px solid goldenrod;
+     transition: 500ms width;
+     
+ }
+ /* body styling */
+ .body{
+     display: flex;
+ }
+ /* camera dashboard styling */
+ .form-dashboard{
+     width: 100%;
+     background: url("Images/upback.jpg");
+     background-size: cover;
+     background-position: center;
+     display: flex;
+     flex-direction: column;
+     overflow: hidden;
+ }
+ 
+ .side-bar ul {
+     margin-top: 20px;
+     list-style: none;
+ }
+ 
+ .side-bar ul li {
+     font-size: 16px;
+     padding: 15px 0px;
+     padding-left: 20px;
+     transition: 500ms background;
+     display: flex;
+ 
+ }
+ 
+ .side-bar ul li a{
+     text-decoration: none;
+     color: goldenrod;
+     cursor: pointer;
+     letter-spacing: 1px;
+     font-size: 16px;
+     flex-grow: 1;
+     display: flex;
+ }
+ 
+ .side-bar ul li:hover{
+     background: black;
+     cursor: pointer;
+ }
+ 
+ #hamburger{
+     display: inline-block;
+     margin-left: 70px;
+     font-size: 20px;
+     transition: 500ms color;
+ }
+ 
+ #checkbox{
+     display: none;
+     
+ }
+ 
+ #checkbox:checked ~ .body .side-bar{
+     width: 60px;
+     
+ }
+ 
+ #checkbox:checked ~ .body .side-bar .userprofile{
+     visibility: hidden;
+ }
+ 
+ #checkbox:checked ~ .body .side-bar a span{
+     display: none;
+ }
+ 
+ .label{
+     margin-left: -70px;
+ }
+ 
+ .login-block {
+    width: 320px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    border-top: 5px solid #ff656c;
+    margin-left: 20px;
+    margin-top: 20px;
+    box-shadow: 5px 5px 10px #888888;
+    margin-bottom: 20px;
+
+}
+
+.login-block h1 {
+    text-align: center;
+    color: #000;
+    font-size: 18px;
+    text-transform: uppercase;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.login-block input {
+    width: 100%;
+    height: 42px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-family: Montserrat;
+    padding: 0 20px 0 50px;
+    outline: none;
+}
+
+.login-block input#username {
+    background: #fff url('Images/icon.png') 20px top no-repeat;
+    background-size: 16px 80px;
+    border: 1px solid #ff656c;
+    margin-bottom: 15px;
+}
+
+.login-block input#username:focus {
+    background: #fff url('Images/icon.png') 20px bottom no-repeat;
+    background-size: 16px 80px;
+    border: 1px solid #ff656c;
+}
+
+
+
+.login-block input:active,
+.login-block input:focus {
+    border: 1px solid #ff656c;
+}
+
+.login-block button {
+    width: 100%;
+    height: 40px;
+    background: #ff656c;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid #e15960;
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-family: Montserrat;
+    outline: none;
+    cursor: pointer;
+}
+
+.login-block button:hover {
+    background: #e15960
+}
+
+
+
+/*Styling for File Upload Section*/
+.fileUploadInput {
+    display: grid;
+    grid-gap: 10px;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+}     
+.fileUploadInput input {
+      position: relative;
+      z-index: 1;
+      padding: 0 gap(m);
+      width: 100%;
+      height: 50px;
+      border: 1px solid #ff656c;
+      border-radius: 5px;
+      font-family: arial, sans-serif;
+      font-size: 1rem;
+      font-weight: regular;
+      cursor: pointer;
+}
+.fileUploadInput input[type="file"] {
+    padding-left: 20px;
+    padding-right: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: calc(100% - 50px);
+    max-width: 100%;
+    display: block;
+    background: #fff;
+}
+.fileUploadInput input[type="file"]::-webkit-file-upload-button {
+          visibility: hidden;
+          margin-left: 10px;
+          padding: 0;
+          height: 50px;
+          width: 0;
+}         
+.fileUploadInput button {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 50px;
+      height: 50px;
+      line-height: 0;
+      user-select: none;
+      color: white;
+      background-color: #ff656c;
+      border-radius: 0 3px 3px 0;
+      font-family: arial, sans-serif;
+      font-size: 1rem;
+      font-weight: 800; 
+      margin-bottom: 20px;
+}
+.fileUploadInput button svg {
+        width: auto;
+        height: 50%; 
+}
+
+.container {
+    padding: 25px;
+    box-shadow: 0 0 20px rgba(66, 50, 98, 0.35);
+    border: 1px solid #ff656c;
+    border-radius: 3px;
+    background: white;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    border: 0px;
+    outline: 0;
+    background-repeat: no-repeat;
+    appearance: none;
+    border-radius: 0;
+    vertical-align: middle;
+    font-weight: inherit;
+    font-style: inherit;
+    font-family: inherit;
+    text-decoration: none;
+    list-style: none;
+    user-select: text;
+    line-height: 1.333em; 
+    }
+  
+  @-moz-document url-prefix() {
+  .fileUploadInput button{
+      display: none
+}
+}
+  
+
+/* styling for error message if No Image is uploaded or image is uploaded successfully */
+p {
+    position: absolute;
+    right: 0;
+    top: 60px;
+    margin-right: 20px;
+    width: 320px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    border-top: 5px solid #659dff;
+    opacity: 0;
+    -webkit-animation: fadeout 10s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadeout 10s; /* Firefox < 16 */
+        -ms-animation: fadeout 10s; /* Internet Explorer */
+         -o-animation: fadeout 10s; /* Opera < 12.1 */
+            animation: fadeout 10s;   
+}
+/*styling for fading out*/
+@keyframes fadeout {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+}
+
+@media (max-width: 600px) {
+    .body {
+      width: auto;
+    }
+    .login-block {
+        width: 85%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .login-block {
+      padding: 10px;
+      font-size: 14px;
+    }
+  }
+
+
+.message-error {
+    border-top: 5px solid #ff6565;
+}
+
+.message-success{
+    border-top: 5px solid #65ff65;
+}
+
+.message-info{
+    border-top: 5px solid #659dff;
+}
+
+
+
+@media screen and (max-width: 600px) {
+    .login-block {
+        width: 85%;
+        padding: 10px;
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .message {
+      right: 10px;
+      top: 10px;
+      padding: 10px;
+      font-size: 12px;
+    }
+  }
+
+.file-name-display {
+    display: block;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    vertical-align: middle;
+    font-size: 1rem;
+    color: #333;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.pulse-button {
+    animation: pulse 1.5s infinite;
+}
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.04); }
+    100% { transform: scale(1); }
+}
+
+.pulse-button {
+    width: 200px;
+    height: 40px;
+    background: #ff656c;
+    box-sizing: border-box;
+    border-radius: 15px;
+    box-shadow: 0px 22px 7px rgba(0, 0, 0, 0.4);
+    border: 1px solid #e15960;
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-family: Montserrat;
+    outline: none;
+    cursor: pointer;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    margin-bottom: 20px;
+    z-index: 1000;
+}
+.pulse-button:hover {
+    background: #a40911;
+}

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'anubis.ico' %}">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'notify.css' %}">
+    <script src=""></script>
+</head>
+<body>
+    <input type="checkbox" id="checkbox">
+    <!--The Header for Anubis-->
+    <header class="header">
+        <label class="label" for="checkbox">
+            <i id="hamburger" class="fa fa-bars" >
+            </i>  
+        </label>
+        <h2 class="u-name"><b>Notifications</b>
+        </h2>
+        <a href="{% url 'dashboard' %}">
+        <i class="fa fa-chevron-circle-left"></i>
+        </a>
+    </header>
+    <!--Adding Left nav with classes for css stlying-->
+    <div class="body">
+        <nav class="side-bar">
+        <!--userprofile css styling-->
+            <div class="userprofile">
+                <img src="{% static 'Images/adminpic.jpg' %}">
+                <h4>{{ user.username }}</h4>
+            </div>
+            <!--Dashboard Items-->
+            <ul>
+                <li>
+                <a href="{% url 'dashboard' %}">
+                    <i class="fa fa-home">
+                        <span>Home</span>
+                    </i>
+                </a>
+                </li>
+                <li>
+                    <a href="{% url 'Upload' %}">
+                        <i class="fa fa-eye">
+                            <span>Train Faces</span>
+                        </i>
+                    </a>
+                    </li>
+                <li> 
+                    <a href="{% url 'Unknownfaces'%}">
+                        <i class="fa fa-user-secret">
+                            <span class="logout">Unknown Faces</span>
+                        </i>
+                    </a>
+                </li>
+                <li> 
+                        <a href="{% url 'logout' %}">
+                            <i class="fa fa-power-off">
+                                <span>Logout</span>
+                            </i>
+                        </a>
+                        </li>
+            </ul>
+            </ul>
+        </nav>
+        <section class="form-dashboard">
+            <div class="login-block">
+                <h1>Setup Notifications</h1>
+                <form method="POST" enctype="multipart/form-data">
+                    <div class="notify-group">
+                        <label class="notify-label">Notification Method</label>
+                        <div class="custom_radio">
+                            <input type="radio" id="featured-1" name="featured" checked>
+                            <label for="featured-1">Email</label>
+                            <input type="radio" id="featured-2" name="featured">
+                            <label for="featured-2">Telegram</label>
+                        </div>
+                    </div>
+                    <div class="notify-group">
+                        <input type="text" value="" placeholder="Email or Telegram Token" name="Recusername" class="notify-input" />
+                    </div>
+                    <button type="submit" class="notify-submit">Submit</button>
+                </form>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

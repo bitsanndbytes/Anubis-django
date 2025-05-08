@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Faces - Anubis NVR</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'anubis.ico'%}">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'dashboard.css' %}">
+    <style>
+        .settings-container {
+            padding: 80px 20px 20px 20px;
+            max-width: 800px;
+            margin: 0;
+            margin-left: 20px;
+        }
+        
+        .settings-card {
+            background: rgba(38, 41, 49, 0.7);
+            border: 2px solid goldenrod;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 320px;
+            margin-left: 0;
+        }
+
+        .settings-card h2 {
+            color: goldenrod;
+            margin-bottom: 15px;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 12px;
+        }
+
+        .form-group label {
+            display: block;
+            color: #fff;
+            margin-bottom: 4px;
+            font-size: 13px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid goldenrod;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            font-size: 13px;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: rgb(23, 203, 89);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .settings-btn {
+            background: goldenrod;
+            color: #262931;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 5px;
+        }
+
+        .settings-btn:hover {
+            background: rgb(23, 203, 89);
+            color: #fff;
+        }
+
+        .file-upload-container {
+            margin: 15px 0;
+            position: relative;
+        }
+
+        .file-upload-input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid goldenrod;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            font-size: 13px;
+            transition: all 0.3s ease;
+        }
+
+        .file-upload-input::-webkit-file-upload-button {
+            background: goldenrod;
+            color: #262931;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            margin-right: 10px;
+        }
+
+        .file-upload-input::-webkit-file-upload-button:hover {
+            background: rgb(23, 203, 89);
+            color: #fff;
+        }
+
+        .pulse-button {
+            width: 200px;
+            height: 40px;
+            background: #ff656c;
+            box-sizing: border-box;
+            border-radius: 15px;
+            box-shadow: 0px 22px 7px rgba(0, 0, 0, 0.4);
+            border: 1px solid #e15960;
+            color: #fff;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 14px;
+            font-family: Montserrat;
+            outline: none;
+            cursor: pointer;
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            margin-bottom: 20px;
+            z-index: 1000;
+            animation: pulse 1.5s infinite;
+        }
+
+        .pulse-button:hover {
+            background: #a40911;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.04); }
+            100% { transform: scale(1); }
+        }
+
+        /* Notification styles */
+        .notification {
+            position: fixed;
+            top: 70px;
+            right: 20px;
+            padding: 15px 25px;
+            border-radius: 4px;
+            color: #fff;
+            font-size: 14px;
+            z-index: 1000;
+            opacity: 0;
+            animation: fadeInOut 5s ease-in-out;
+        }
+
+        .notification-success {
+            background: rgba(23, 203, 89, 0.9);
+            border: 1px solid rgb(23, 203, 89);
+        }
+
+        .notification-error {
+            background: rgba(203, 23, 23, 0.9);
+            border: 1px solid rgb(203, 23, 23);
+        }
+
+        @keyframes fadeInOut {
+            0% { opacity: 0; transform: translateY(-20px); }
+            10% { opacity: 1; transform: translateY(0); }
+            90% { opacity: 1; transform: translateY(0); }
+            100% { opacity: 0; transform: translateY(-20px); }
+        }
+    </style>
+</head>
+<body>
+    <input type="checkbox" id="checkbox">
+    <header class="header">
+        <label class="label" for="checkbox">
+            <i id="hamburger" class="fa fa-bars"></i>
+        </label>
+        <h2 class="u-name">Anubis-<b>NVR</b><i class="fa fa-eye eye-icon"></i></h2>
+        <div class="header-controls">
+            <a href="{% url 'logout' %}" class="btn-control">
+                <i class="fa fa-sign-out"></i> Logout
+            </a>
+        </div>
+    </header>
+
+    <div class="body">
+        <nav class="side-bar">
+            <div class="userprofile" id="dash">
+                <img src="{% static 'Images/adminpic.jpg' %}" alt="Profile">
+                <h4>{{ user.username }}</h4>
+            </div>
+            <ul>
+                <li><a href="{% url 'dashboard' %}"><i class="fa fa-desktop"></i><span>Dashboard</span></a></li>
+                <li><a href="{% url 'Upload' %}"><i class="fa fa-eye"></i><span>Train Faces</span></a></li>
+                <li><a href="{% url 'Unknownfaces'%}"><i class="fa fa-user-secret"></i><span>Unknown Faces</span></a></li>
+                <li><a href="{% url 'Notify'%}"><i class="fa fa-bell"></i><span>Notifications</span></a></li>
+                <li><a href="{% url 'settings'%}"><i class="fa fa-cog"></i><span>Settings</span></a></li>
+                <li><a href="{% url 'activity_log'%}"><i class="fa fa-history"></i><span>Activity Log</span></a></li>
+            </ul>
+        </nav>
+
+        <main class="main-content">
+            <div class="settings-container">
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="notification notification-{{ message.tags }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+                <div class="settings-card">
+                    <h2><i class="fa fa-upload"></i> Upload Faces</h2>
+                    <form method="POST" enctype="multipart/form-data" id="uploadForm">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="username">Person's Name</label>
+                            <input type="text" id="username" name="Recusername" placeholder="Enter person's name" />
+                        </div>
+                        <div class="form-group">
+                            <label for="RecimageInput">Face Image</label>
+                            <input type="file" class="file-upload-input" name="Recimage" accept="image/jpeg, image/png" id="RecimageInput" />
+                        </div>
+                        <button type="submit" class="settings-btn">Upload</button>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <button class="pulse-button">Train Datasets</button>
+
+    <script>
+    const form = document.getElementById('uploadForm');
+    const fileInput = document.getElementById('RecimageInput');
+    form.addEventListener('submit', function(e) {
+        const file = fileInput.files[0];
+        if (!file) {
+            e.preventDefault();
+            showNotification('Please select an image file.', 'error');
+            return;
+        }
+        const validTypes = ['image/jpeg', 'image/png'];
+        if (!validTypes.includes(file.type)) {
+            e.preventDefault();
+            showNotification('Only JPEG and PNG images are allowed.', 'error');
+            return;
+        }
+        if (file.size > 5 * 1024 * 1024) { // 5MB
+            e.preventDefault();
+            showNotification('File size must be less than 5MB.', 'error');
+            return;
+        }
+    });
+
+    function showNotification(message, type) {
+        const notification = document.createElement('div');
+        notification.className = `notification notification-${type}`;
+        notification.textContent = message;
+        document.body.appendChild(notification);
+
+        // Remove notification after animation
+        notification.addEventListener('animationend', function() {
+            this.remove();
+        });
+    }
+
+    // Auto-remove notifications after animation
+    document.addEventListener('DOMContentLoaded', function() {
+        const notifications = document.querySelectorAll('.notification');
+        notifications.forEach(notification => {
+            notification.addEventListener('animationend', function() {
+                this.remove();
+            });
+        });
+    });
+    </script>
+</body>
+</html>

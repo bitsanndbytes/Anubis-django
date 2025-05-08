@@ -1,0 +1,235 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box; 
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+ }
+ /* Styling for the header*/
+ .header {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     padding: 7px 30px;
+     background-color: #2c2c2c;
+     color :black;
+     border-bottom: 3px solid goldenrod;
+     
+ }
+ /*styling for Anubis lettering*/
+ .u-name{
+     font-size:  20px;
+     padding-left: 17px;
+ }
+ /* styling for all the i tags in the header*/
+ .header i {
+     font-size: 30px;
+     cursor: pointer;
+     color: black;
+     
+ }
+ /*hovering effect for the i tag to gold */
+ .header i:hover {
+     color: goldenrod;
+ }
+ /*styling for the user profile icon on the left */
+ .userprofile {
+     text-align: center;
+     padding-left: 10px;
+     padding-top: 25px;
+     margin-left: -50px;
+ }
+ 
+ .userprofile img{
+     width: 100px;
+     border-radius: 50%;
+ }
+ 
+ .userprofile h4{
+     color: goldenrod;
+     padding: 5px 0;
+ }
+ 
+ /*styling for the side bar */
+ .side-bar{
+     width: 250px;
+     background: #262931;
+     min-height: 100vh; 
+     border-right: 3px solid goldenrod;
+     transition: 500ms width;
+     
+ }
+ /* body styling */
+ .body{
+     display: flex;
+ }
+ /* camera dashboard styling */
+ .form-dashboard{
+     width: 100%;
+     background: url("Images/unknownfaces.jpg");
+     background-size: cover;
+     background-position: center;
+     display: flex;
+     flex-direction: column;
+     overflow: hidden;
+     position: relative;
+     
+ }
+ 
+ .side-bar ul {
+     margin-top: 20px;
+     list-style: none;
+ }
+ 
+ .side-bar ul li {
+     font-size: 16px;
+     padding: 15px 0px;
+     padding-left: 20px;
+     transition: 500ms background;
+     display: flex;
+ 
+ }
+ 
+ .side-bar ul li a{
+     text-decoration: none;
+     color: goldenrod;
+     cursor: pointer;
+     letter-spacing: 1px;
+     font-size: 16px;
+     flex-grow: 1;
+     display: flex;
+ }
+ 
+ .side-bar ul li:hover{
+     background: black;
+     cursor: pointer;
+ }
+ 
+ #hamburger{
+     display: inline-block;
+     margin-left: 70px;
+     font-size: 20px;
+     transition: 500ms color;
+ }
+ 
+ #checkbox{
+     display: none;
+     
+ }
+ 
+ #checkbox:checked ~ .body .side-bar{
+     width: 60px;
+     
+ }
+ 
+ #checkbox:checked ~ .body .side-bar .userprofile{
+     visibility: hidden;
+ }
+ 
+ #checkbox:checked ~ .body .side-bar a span{
+     display: none;
+ }
+ 
+ .label{
+     margin-left: -70px;
+ }
+ 
+ .login-block {
+    width: 320px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    border-top: 5px solid #ff656c;
+    margin-left: 20px;
+    margin-top: 20px;
+    box-shadow: 5px 5px 10px #888888;
+    margin-bottom: 20px;
+
+}
+
+.login-block h1 {
+    text-align: center;
+    color: #000;
+    font-size: 18px;
+    text-transform: uppercase;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.login-block input {
+    width: 100%;
+    height: 42px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-family: Montserrat;
+    padding: 0 20px 0 50px;
+    outline: none;
+}
+
+button {
+    width: 200px;
+    height: 40px;
+    background: #ff656c;
+    box-sizing: border-box;
+    border-radius: 15px;
+    box-shadow: 0px 22px 7px rgba(0, 0, 0, 0.4);
+    border: 1px solid #e15960;
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-family: Montserrat;
+    outline: none;
+    cursor: pointer;
+    position: absolute;
+    bottom: 8%;
+    right: .5%;
+    margin-bottom: 20px;
+    outline: none;
+    
+}
+
+button:hover {
+    background: #a40911
+}
+/*Pulsing button for view faces button*/
+.pulse-button {
+    animation: pulse 1.5s infinite;
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.04);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+/* styling for error message if username and password is wrong */
+p {
+    width: 320px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    border-top: 5px solid #659dff;
+    margin-left: 20px;
+    opacity: 0;
+    -webkit-animation: fadeout 7s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadeout 7s; /* Firefox < 16 */
+        -ms-animation: fadeout 7s; /* Internet Explorer */
+         -o-animation: fadeout 7s; /* Opera < 12.1 */
+            animation: fadeout 7s;
+}
+/*styling for fading out*/
+@keyframes fadeout {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+}
+
+/* Styling for Radio button */

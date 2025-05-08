@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'anubis.ico'%}">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'dashboard.css' %}">
+</head>
+<body>
+    <input type="checkbox" id="checkbox">
+    <header class="header">
+        <label class="label" for="checkbox">
+            <i id="hamburger" class="fa fa-bars"></i>
+        </label>
+        <h2 class="u-name">Anubis-<b>NVR</b><i class="fa fa-eye eye-icon"></i></h2>
+        <div class="header-controls">
+            <a href="{% url 'logout' %}" class="btn-control">
+                <i class="fa fa-sign-out"></i> Logout
+            </a>
+        </div>
+    </header>
+
+    <div class="body">
+        <nav class="side-bar">
+            <div class="userprofile" id="dash">
+                <img src="{% static 'Images/adminpic.jpg' %}" alt="Profile">
+                <h4>{{ user.username }}</h4>
+            </div>
+            <ul>
+                <li><a href="{% url 'dashboard' %}"><i class="fa fa-desktop"></i><span>Dashboard</span></a></li>
+                <li><a href="{% url 'Upload' %}"><i class="fa fa-eye"></i><span>Train Faces</span></a></li>
+                <li><a href="{% url 'Unknownfaces'%}"><i class="fa fa-user-secret"></i><span>Unknown Faces</span></a></li>
+                <li><a href="{% url 'Notify'%}"><i class="fa fa-bell"></i><span>Notifications</span></a></li>
+                <li><a href="{% url 'settings'%}"><i class="fa fa-cog"></i><span>Settings</span></a></li>
+                <li><a href="{% url 'activity_log'%}"><i class="fa fa-history"></i><span>Activity Log</span></a></li>
+            </ul>
+        </nav>
+
+        <main class="main-content">
+            <div class="cameradashboard">
+                <div id="div-container">
+                    <div class="div-shadow">
+                        <video id="video1" autoplay muted></video>
+                        <button id="trash1" class="pulse-button trash-button"><i class="fa fa-trash"></i></button>
+                        <button id="button" class="pulse-button">+</button>
+                    </div>
+                    <div class="div-shadow">
+                        <video id="video2" autoplay muted></video>
+                        <button id="trash2" class="pulse-button trash-button"><i class="fa fa-trash"></i></button>
+                        <button id="button2" class="pulse-button">+</button>
+                    </div>
+                    <div class="div-shadow">
+                        <video id="video3" autoplay muted></video>
+                        <button id="trash3" class="pulse-button trash-button"><i class="fa fa-trash"></i></button>
+                        <button id="button3" class="pulse-button">+</button>
+                    </div>
+                    <div class="div-shadow">
+                        <video id="video4" autoplay muted></video>
+                        <button id="trash4" class="pulse-button trash-button"><i class="fa fa-trash"></i></button>
+                        <button id="button4" class="pulse-button">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Camera 1 Modal -->
+            <div class="bg-modal">
+                <div class="modal-content">
+                    <div class="close">+</div>
+                    <form class="form-container">
+                        <h1>Add Camera</h1>
+                        <input type="text" id="username" placeholder="Camera Name">
+                        <input type="text" id="nm" placeholder="RTSP URL">
+                        <button type="button" class="btn">Add Camera</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Camera 2 Modal -->
+            <div id="modal2" class="bg-modal">
+                <div class="modal-content">
+                    <div class="close">+</div>
+                    <form class="form-container">
+                        <h1>Add Camera</h1>
+                        <input type="text" id="username2" placeholder="Camera Name">
+                        <input type="text" id="nm2" placeholder="RTSP URL">
+                        <button type="button" class="btn">Add Camera</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Camera 3 Modal -->
+            <div id="modal3" class="bg-modal">
+                <div class="modal-content">
+                    <div class="close">+</div>
+                    <form class="form-container">
+                        <h1>Add Camera</h1>
+                        <input type="text" id="username3" placeholder="Camera Name">
+                        <input type="text" id="nm3" placeholder="RTSP URL">
+                        <button type="button" class="btn">Add Camera</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Camera 4 Modal -->
+            <div id="modal4" class="bg-modal">
+                <div class="modal-content">
+                    <div class="close">+</div>
+                    <form class="form-container">
+                        <h1>Add Camera</h1>
+                        <input type="text" id="username4" placeholder="Camera Name">
+                        <input type="text" id="nm4" placeholder="RTSP URL">
+                        <button type="button" class="btn">Add Camera</button>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="{% static 'dashboard.js' %}"></script>
+</body>
+</html>

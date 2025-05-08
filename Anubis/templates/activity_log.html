@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activity Log - Anubis NVR</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'anubis.ico'%}">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'dashboard.css' %}">
+    <style>
+        .activity-container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <input type="checkbox" id="checkbox">
+    <header class="header">
+        <label class="label" for="checkbox">
+            <i id="hamburger" class="fa fa-bars"></i>
+        </label>
+        <h2 class="u-name">Anubis-<b>NVR</b><i class="fa fa-eye eye-icon"></i></h2>
+        <div class="header-controls">
+            <a href="{% url 'logout' %}" class="btn-control">
+                <i class="fa fa-sign-out"></i> Logout
+            </a>
+        </div>
+    </header>
+
+    <div class="body">
+        <nav class="side-bar">
+            <div class="userprofile" id="dash">
+                <img src="{% static 'Images/adminpic.jpg' %}" alt="Profile">
+                <h4>{{ user.username }}</h4>
+            </div>
+            <ul>
+                <li><a href="{% url 'dashboard' %}"><i class="fa fa-desktop"></i><span>Dashboard</span></a></li>
+                <li><a href="{% url 'Upload' %}"><i class="fa fa-eye"></i><span>Train Faces</span></a></li>
+                <li><a href="{% url 'Unknownfaces'%}"><i class="fa fa-user-secret"></i><span>Unknown Faces</span></a></li>
+                <li><a href="{% url 'Notify'%}"><i class="fa fa-bell"></i><span>Notifications</span></a></li>
+                <li><a href="{% url 'settings'%}"><i class="fa fa-cog"></i><span>Settings</span></a></li>
+                <li><a href="{% url 'activity_log'%}"><i class="fa fa-history"></i><span>Activity Log</span></a></li>
+            </ul>
+        </nav>
+
+        <main class="main-content">
+            <div class="activity-container">
+            </div>
+        </main>
+    </div>
+</body>
+</html> 

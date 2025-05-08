@@ -1,0 +1,249 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box; 
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+/* Styling for the header*/
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 7px 30px;
+    background-color: #2c2c2c;
+    color: black;
+    border-bottom: 3px solid goldenrod;
+}
+
+/*styling for Anubis lettering*/
+.u-name {
+    font-size: 20px;
+    padding-left: 17px;
+}
+
+/* styling for all the i tags in the header*/
+.header i {
+    font-size: 30px;
+    cursor: pointer;
+    color: black;
+}
+
+/*hovering effect for the i tag to gold */
+.header i:hover {
+    color: goldenrod;
+}
+
+/*styling for the user profile icon on the left */
+.userprofile {
+    text-align: center;
+    padding-left: 10px;
+    padding-top: 25px;
+    margin-left: -50px;
+}
+
+.userprofile img {
+    width: 100px;
+    border-radius: 50%;
+}
+
+.userprofile h4 {
+    color: goldenrod;
+    padding: 5px 0;
+}
+
+/*styling for the side bar */
+.side-bar {
+    width: 250px;
+    background: #262931;
+    min-height: 100vh; 
+    border-right: 3px solid goldenrod;
+    transition: 500ms width;
+}
+
+/* body styling */
+.body {
+    display: flex;
+}
+
+/* camera dashboard styling */
+.form-dashboard {
+    width: 100%;
+    background: url("Images/notifypic.jpg");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 80px 20px 20px 20px;
+}
+
+.side-bar ul {
+    margin-top: 20px;
+    list-style: none;
+}
+
+.side-bar ul li {
+    font-size: 16px;
+    padding: 15px 0px;
+    padding-left: 20px;
+    transition: 500ms background;
+    display: flex;
+}
+
+.side-bar ul li a {
+    text-decoration: none;
+    color: goldenrod;
+    cursor: pointer;
+    letter-spacing: 1px;
+    font-size: 16px;
+    flex-grow: 1;
+    display: flex;
+}
+
+.side-bar ul li:hover {
+    background: black;
+    cursor: pointer;
+}
+
+#hamburger {
+    display: inline-block;
+    margin-left: 70px;
+    font-size: 20px;
+    transition: 500ms color;
+}
+
+#checkbox {
+    display: none;
+}
+
+#checkbox:checked ~ .body .side-bar {
+    width: 60px;
+}
+
+#checkbox:checked ~ .body .side-bar .userprofile {
+    visibility: hidden;
+}
+
+#checkbox:checked ~ .body .side-bar a span {
+    display: none;
+}
+
+.label {
+    margin-left: -70px;
+}
+
+/* Updated login block styles */
+.login-block {
+    background: rgba(38, 41, 49, 0.7);
+    border: 2px solid goldenrod;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 320px;
+    margin-left: 0;
+}
+
+.login-block h1 {
+    color: goldenrod;
+    margin-bottom: 15px;
+    font-size: 20px;
+    text-align: left;
+    text-transform: none;
+}
+
+/* Form group styles */
+.notify-group {
+    margin-bottom: 12px;
+}
+
+.notify-label {
+    display: block;
+    color: #fff;
+    margin-bottom: 4px;
+    font-size: 13px;
+}
+
+/* Radio button styles */
+.custom_radio {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.custom_radio div {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.custom_radio div:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.custom_radio input[type="radio"] {
+    margin-right: 10px;
+    accent-color: goldenrod;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+}
+
+.custom_radio label {
+    color: #fff;
+    font-size: 13px;
+    cursor: pointer;
+    padding-left: 0;
+    margin: 0;
+    height: auto;
+}
+
+/* Input styles */
+.notify-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid goldenrod;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 13px;
+    transition: all 0.3s ease;
+    height: auto;
+    box-sizing: border-box;
+    margin-bottom: 0;
+}
+
+.notify-input:focus {
+    outline: none;
+    border-color: rgb(23, 203, 89);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* Submit button styles */
+.notify-submit {
+    background: goldenrod;
+    color: #262931;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-top: 5px;
+    height: auto;
+    text-transform: none;
+}
+
+.notify-submit:hover {
+    background: rgb(23, 203, 89);
+    color: #fff;
+}
